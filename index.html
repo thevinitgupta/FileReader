@@ -11,16 +11,11 @@
     <div class="container container-lg">
         <div class="row align-items-center">
             <div class="col"><span>To Select File To View: </span></div>
-            <div class="col"><button type="button" class="btn btn-primary btn-md" id="openFileButton">Select File</button></div>
+            <div class="col"><button type="button" class="btn btn-primary btn-md" id="selectFile">Select File</button></div>
         </div>
-        <div class="mt-3"><textarea class="textArea" value="" rows="10" cols="70"></textarea></div>
-
-        <div class="row align-items-center">
-            <div class="col"><span>To Select File To Edit: </span></div>
-            <div class="col"><button type="button" class="btn btn-primary btn-md" id="openFileButtonToUpdate">Select File</button></div>
-        </div>
-        <div class="mt-3"><textarea class="textAreaUpdate" value="" rows="10" cols="70"></textarea></div>
-        <button type="button" class="btn btn-success btn-md" id="updateFile">Update File</button>
+        <div class="mt-3">
+            <p class="text-success fileName"></p>
+            <textarea class="displayFile" value="" rows="10" cols="60"></textarea></div>
     </div>
 </body>
 <script src="index.js"></script>
