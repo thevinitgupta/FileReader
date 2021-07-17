@@ -24,6 +24,21 @@ async function writeFile(fileHandle, contents) {
     }
 }
 
+//read File demo
+async function displayFileContent(){
+  try{
+    [fileHandle] = await window.showOpenFilePicker();
+    const file = await fileHandle.getFile();
+    const contents = await file.text();
+
+    displayFile.value = contents;
+    fileName.innerHTML = file.name;
+  }
+  catch(e){
+    console.log(e);
+  }
+}
+
 /**
  * 
  * <div class="row align-items-center">
