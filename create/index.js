@@ -27,7 +27,13 @@ async function readText(event){
   }
 }
 
+if(window.matchMedia("(pointer: coarse)").matches) {
+  selectFile.addEventListener("touchend",saveFileFunc);
+}
+else {
+  selectFile.addEventListener("click",saveFileFunc);
+}
 
-selectFile.addEventListener("click",saveFileFunc);
+
 
 editFile.addEventListener('keyup',readText);
