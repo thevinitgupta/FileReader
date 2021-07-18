@@ -19,4 +19,8 @@ const getFile = document.querySelector("#getFile");
    }
  }
 
+ getFile.addEventListener('touchend', function(e) {
+  e.preventDefault();
+  e.target.click();
+  }, false);
 getFile.addEventListener("click",displayFileContent);
