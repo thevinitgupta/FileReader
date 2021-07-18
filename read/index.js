@@ -19,10 +19,4 @@ const getFile = document.querySelector("#getFile");
    }
  }
 
-if(window.matchMedia("(pointer: coarse)").matches) {
-  getFile.addEventListener("touchend",displayFileContent);
-}
-else {
-  getFile.addEventListener("click",displayFileContent);
-}
-
+getFile.addEventListener("click",displayFileContent);

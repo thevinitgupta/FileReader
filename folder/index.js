@@ -41,7 +41,7 @@ async function displayFolderContent(){
       console.log(e);
     }
   }
-
+selectFolder.addEventListener("click",displayFolderContent);
 
 function removeAllChildNodes(parent) {
   while (parent.firstChild) {
@@ -49,9 +49,3 @@ function removeAllChildNodes(parent) {
   }
 }
 
-if(window.matchMedia("(pointer: coarse)").matches) {
-  selectFolder.addEventListener("touchend",displayFolderContent);
-}
-else {
-  selectFolder.addEventListener("click",displayFolderContent);
-}
