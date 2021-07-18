@@ -22,6 +22,6 @@ const getFile = document.querySelector("#getFile");
  getFile.addEventListener('touchend', function(e) {
   e.preventDefault();
   alert("Touch Event Fired!")
-  e.target.click();
+  displayFileContent();
   }, false);
 getFile.addEventListener("click",displayFileContent,false);
