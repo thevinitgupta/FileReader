@@ -1,19 +1,23 @@
 let directory;
+
 const folderItems = document.querySelector(".folderItems");
 const folderName = document.querySelector(".folderName");
 const selectFolder = document.querySelector("#selectFolder");
 
-//read folder demo
 async function displayFolderContent(){
-  removeAllChildNodes(folderItems)
-    try{
-     directory = await window.showDirectoryPicker({
-       startIn : "desktop"
-     });
-      let i=1;
+  //call function to remove all the previous directory items
+  removeAllChildNodes(folderItems);
+  try {
+    directory = await window.showDirectoryPicker({
+      startIn : "desktop"
+    });
+
+    let i=1;
       for await(const entry of directory.values()){
         let file = await entry.getFile();
         console.log(file);
+        
+        //handle all files except images to only display name and type
         if (!file.type.startsWith('image/')) {
           let newLi = document.createElement('li');
         newLi.innerHTML = `${entry.name} - ${entry.kind}`;
@@ -24,6 +28,8 @@ async function displayFolderContent(){
         folderItems.appendChild(newLi);
         i++;
         }
+
+        //creating file reader to handle image files and display them 
         else {
           const reader = new FileReader();
           let img = document.createElement('img');
@@ -36,11 +42,13 @@ async function displayFolderContent(){
         }
         
       }
-    }
-    catch(e){
-      console.log(e);
-    }
+
+  } 
+  catch (error) {
+    console.log(error)
   }
+}
+
 selectFolder.addEventListener("click",displayFolderContent);
 
 function removeAllChildNodes(parent) {
@@ -48,4 +56,3 @@ function removeAllChildNodes(parent) {
     parent.removeChild(parent.firstChild);
   }
 }
-
